@@ -27,29 +27,29 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const database = {
-    "users": [
-        {
-            id: "123",
-            name: "john",
-            email: "john@gmail.com",
-            password: "cookies",
-            entries: 0,
-            joined: new Date()
-        },
-        {
-            id: "1234",
-            name: "dave",
-            email: "dave@gmail.com",
-            password: "banana",
-            entries: 0,
-            joined: new Date()
-        },
-    ]
-}
+// const database = {
+//     "users": [
+//         {
+//             id: "123",
+//             name: "john",
+//             email: "john@gmail.com",
+//             password: "cookies",
+//             entries: 0,
+//             joined: new Date()
+//         },
+//         {
+//             id: "1234",
+//             name: "dave",
+//             email: "dave@gmail.com",
+//             password: "banana",
+//             entries: 0,
+//             joined: new Date()
+//         },
+//     ]
+// }
 
 app.get("/", (req, res) => {
-    res.send(database.users);
+    res.send("The server is up and running........");
 })
 
 app.post("/signin", (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
@@ -67,5 +67,5 @@ app.post("/imageUrl", (req, res) => { image.handleApiCall(req, res) })
 
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log("Server running successfully")
+    console.log(`Server running successfully ${process.env.PORT}`)
 })
